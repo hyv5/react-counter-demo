@@ -1,16 +1,67 @@
-# React + Vite
+# 🎯 React Counter Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+一个简单的 React 计数器应用，用于测试完整的 CI/CD 流程。
 
-Currently, two official plugins are available:
+## ✨ 功能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ➕ 增加计数
+- ➖ 减少计数（最小为 0）
+- 🔄 重置计数
+- 🎨 漂亮的渐变背景和毛玻璃效果
 
-## React Compiler
+## 🚀 技术栈
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** - 最新版本
+- **Vite 7** - 快速构建工具
+- **GitHub Actions** - 自动化 CI/CD
 
-## Expanding the ESLint configuration
+## 📦 本地开发
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 构建生产版本
+npm run build
+
+# 预览生产构建
+npm run preview
+```
+
+## 🔧 CI/CD 流程
+
+每次推送到 `main` 分支时会自动触发：
+
+1. ✅ 安装依赖
+2. ✅ 构建项目
+3. ✅ 上传构建产物
+4. ✅ 生成构建摘要
+
+查看 [Actions](https://github.com/hyv5/react-counter-demo/actions) 了解构建状态。
+
+## 📝 项目结构
+
+```
+react-counter-demo/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml    # CI/CD 配置
+├── src/
+│   ├── App.jsx           # 主组件（Counter 逻辑）
+│   ├── App.css           # 样式
+│   └── main.jsx          # 入口文件
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+## 🎨 预览
+
+访问 https://github.com/hyv5/react-counter-demo 查看项目。
+
+---
+
+**Created with ❤️ using React + Vite + GitHub Actions**
