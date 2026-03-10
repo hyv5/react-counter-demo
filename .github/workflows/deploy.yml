@@ -3,16 +3,12 @@ name: Build and Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
-# 设置 GITHUB_TOKEN 权限，允许部署到 Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 只允许一个部署同时运行
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -36,34 +32,16 @@ jobs:
     
     - name: Build
       run: npm run build
+      env:
+        CI: true
     
-    - name: Upload build artifacts
+    - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: dist/
-    
-    - name: Build summary
-      run: |
-        echo "## 📦 Build Complete" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "Build artifacts uploaded successfully!" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "### Output size:" >> $GITHUB_STEP_SUMMARY
-        du -sh dist/* 2>/dev/null | while read line; do echo "- $line" >> $GITHUB_STEP_SUMMARY; done
-    
-    - name: Upload artifact for deployment
-      uses: actions/upload-artifact@v4
-      with:
-        name: github-pages
-        path: dist/
-        retention-days: 1
+        path: ./dist
 
   deploy:
     needs: build
-    
-    # 只在 main 分支推送时部署，PR 不部署
-    if: github.ref == 'refs/heads/main'
-    
     runs-on: ubuntu-latest
     
     environment:
@@ -71,20 +49,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
-    - name: Download build artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: github-pages
-    
-    - name: Setup Pages
-      uses: actions/configure-pages@v5
-    
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
-    
-    - name: Deployment summary
-      run: |
-        echo "## 🚀 Deployment Complete" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "Your site is live at: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
