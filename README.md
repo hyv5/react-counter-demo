@@ -18,11 +18,15 @@
 - **React 19** - 最新版本
 - **Vite 7** - 快速构建工具
 - **GitHub Actions** - 自动化 CI/CD
-- **GitHub Pages** - 静态网站托管
+- **GitHub Pages** - 静态网站托管（gh-pages 分支）
 
 ## 📦 本地开发
 
 ```bash
+# 克隆项目
+git clone https://github.com/hyv5/react-counter-demo.git
+cd react-counter-demo
+
 # 安装依赖
 npm install
 
@@ -41,9 +45,9 @@ npm run preview
 每次推送到 `main` 分支时会自动触发：
 
 1. ✅ 安装依赖
-2. ✅ 构建项目
-3. ✅ 部署到 GitHub Pages
-4. ✅ 生成构建摘要
+2. ✅ 构建项目（Vite build）
+3. ✅ 部署到 `gh-pages` 分支
+4. ✅ GitHub Pages 自动发布
 
 查看 [Actions](https://github.com/hyv5/react-counter-demo/actions) 了解构建状态。
 
@@ -65,7 +69,7 @@ react-counter-demo/
 
 ## 🎨 预览
 
-![Demo](https://via.placeholder.com/600x400/667eea/ffffff?text=React+Counter+Demo)
+访问 https://hyv5.github.io/react-counter-demo/ 查看实际效果。
 
 ---
 
