@@ -9,11 +9,16 @@
 - 🔄 重置计数
 - 🎨 漂亮的渐变背景和毛玻璃效果
 
+## 🌐 在线演示
+
+**https://hyv5.github.io/react-counter-demo/**
+
 ## 🚀 技术栈
 
 - **React 19** - 最新版本
 - **Vite 7** - 快速构建工具
 - **GitHub Actions** - 自动化 CI/CD
+- **GitHub Pages** - 静态网站托管
 
 ## 📦 本地开发
 
@@ -37,7 +42,7 @@ npm run preview
 
 1. ✅ 安装依赖
 2. ✅ 构建项目
-3. ✅ 上传构建产物
+3. ✅ 部署到 GitHub Pages
 4. ✅ 生成构建摘要
 
 查看 [Actions](https://github.com/hyv5/react-counter-demo/actions) 了解构建状态。
@@ -60,8 +65,8 @@ react-counter-demo/
 
 ## 🎨 预览
 
-访问 https://github.com/hyv5/react-counter-demo 查看项目。
+![Demo](https://via.placeholder.com/600x400/667eea/ffffff?text=React+Counter+Demo)
 
 ---
 
-**Created with ❤️ using React + Vite + GitHub Actions**
+**Created with ❤️ using React + Vite + GitHub Actions + GitHub Pages**
