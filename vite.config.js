@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // GitHub Pages 部署需要设置 base 为仓库名
-  base: '/react-counter-demo/',
+  base: './',
 })
